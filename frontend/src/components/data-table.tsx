@@ -94,7 +94,7 @@ function TableCell({
 
   const formattedValue = column.key.toString().includes('At')
     ? new Date(value).toLocaleString()
-    : column.key === 'meso' || column.key === 'exp'
+    : column.key === 'meso' || column.key === 'exp' || column.key === 'playTime'
     ? (value as number).toLocaleString()
     : String(value);
 
