@@ -1,0 +1,22 @@
+datasource db {
+  provider = "postgresql"  // Or "mysql", "sqlite", etc. according to your setup
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  userId    String    @unique
+  nickname  String
+  level     Int
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  job       String?   // 직업
+  jobCode   Int?      // 직업 코드
+  meso      Int?      // 질량
+  playTime  Int?      // 플레이 타임
+  exp       Int?      // 경험치
+} 
