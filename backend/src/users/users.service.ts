@@ -99,6 +99,7 @@ export class UsersService {
 
   /**
    * 유저 ID 또는 닉네임으로 유저를 검색함
+   * 레벨과 경험치 기준 정렬
    * 
    * @param keyword - 검색할 키워드 (최소 2자, 최대 30자)
    * 
@@ -123,6 +124,10 @@ export class UsersService {
             { nickname: { contains: keyword.trim(), mode: 'insensitive' } },
           ],
         },
+        orderBy: [
+          { level: 'desc' },
+          { exp: 'desc' }
+        ],
         select: {
           userId: true,
           nickname: true,
